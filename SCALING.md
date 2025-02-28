@@ -28,7 +28,7 @@ We can hope to ensure consistency and parity accross multiple environments by us
 
 ## Centralized RBAC Management
 
-For centralized RBAC, consider using an external identity provider and integrating it with Kubernetes. Terraform can then be used to configure RoleBindings based on user groups from the identity provider.
+For centralized RBAC, consider using an external identity provider and integrating it with Kubernetes. Terraform can then be used to configure RoleBindings based on user groups from the identity provider.  
 For example with GCP we can use our organiziations Goolgle accounts or groups for our authentication and reference them in our RoleBindings.
 
 ## Automation
@@ -55,22 +55,29 @@ An example workflow might look something like this:
 
 - **Configuration drift:** 
 We can add a Crossplane deployment with the terraform provider inside the cluster. 
-Crossplane will watch our repo on a specified branch for changes and apply them. This can more GitOps approach help us prevent configuration drift.
+Crossplane will watch our repo on a specified branch for changes and apply them. This GitOps approach help us prevent configuration drift.
   
 - **Messy large files:**
 Another issue we can forsee being a problem is certain files in this repository growing with huge messy files. 
+For example if all namespaces and RBAC definitions for every project are in the single file `namespaces.tf` it can become messy to read and modify. 
 We can make our file structure more friendly by asking developers to create new terraform files per project. 
 A recommened appraoch would be to standardize the naming convention to folllow - `{{TEAM_NAME}}-{{PROJECT_NAME}}.tf`
   
 - **Security**
 We may wish to incorporate some security compliance tools into our workflow. 
-We can use tools like `tfsec` to provide users with feedback regarding best practices for any resources they wish to create using our self service repo. 
+We can use tools like [tfsec](https://aquasecurity.github.io/tfsec/v1.20.0/) to provide users with feedback regarding best practices for any resources they wish to create using our self service repo. 
+
+- **Modules**:
+Sometimes re-using modules with `terraform` can be difficult for users to understand. It's important to keep documentation up to date. 
+We can use some tools such as [terraform-docs](https://terraform-docs.io/user-guide/introduction/) to help us keep the documentation of modules up to date.
   
 
 ## Tools and Technologies
 
-- Terraform with the Kubernetes Provider
-- Potentially crossplane, with the terraform provider. 
+- Terraform
+- Potentially crossplane, with the [terraform provider](https://github.com/upbound/provider-terraform). 
+- Terraform security scanner [tfsec](https://aquasecurity.github.io/tfsec/v1.20.0/)
+- [terraform-docs](https://terraform-docs.io/user-guide/introduction/)
 - Argo CD - Teams should be able to add their `Application` to clusters using this self service repository. This can facilitate setting up GitOps and contionous delivery in multiple envinments. 
 
 
