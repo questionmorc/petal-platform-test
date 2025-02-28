@@ -5,7 +5,6 @@ This document outlines the steps and considerations for transitioning the local 
 - **Network Policies:**
     - Implement network policies to control traffic flow between pods and namespaces. This helps to segment your network and prevent unauthorized access.
     - Use fine-grained network policies to restrict communication to only necessary ports and protocols.
-    - Consider using network policy controllers that provide advanced features, such as policy auditing and visualization.
 
 - **RBAC (Role-Based Access Control):**
     - Enforce the principle of least privilege by granting users and service accounts only the permissions they need.
@@ -54,13 +53,13 @@ This document outlines the steps and considerations for transitioning the local 
 ## Monitoring & Logging Setups
 
 - **Metrics Collection:** Implement a system to collect key metrics from your cluster, nodes, and applications. This includes:
--   - **Cluster Resource Usage:** CPU, memory, network, and storage utilization.
--   - **Pod Health:** Liveness and readiness probes, restarts, and resource consumption.
--   - **Application Performance:** Request latency, error rates, and throughput.
+   - **Cluster Resource Usage:** CPU, memory, network, and storage utilization.
+   - **Pod Health:** Liveness and readiness probes, restarts, and resource consumption.
+   - **Application Performance:** Request latency, error rates, and throughput.
 - **Metrics Storage and Analysis:** Store collected metrics in a time-series database for analysis and visualization.  This allows you to:
--   - **Identify Trends:** Spot patterns and anomalies in resource usage and performance.
--   - **Set Alerts:** Trigger alerts based on defined thresholds (e.g., high CPU usage, low disk space).
--   - **Troubleshooting:** Diagnose issues and identify root causes.
+   - **Identify Trends:** Spot patterns and anomalies in resource usage and performance.
+   - **Set Alerts:** Trigger alerts based on defined thresholds (e.g., high CPU usage, low disk space).
+   - **Troubleshooting:** Diagnose issues and identify root causes.
 - **Visualization:** Use dashboards and visualizations to gain insights into your cluster's performance and health.  Visualize key metrics, trends, and relationships between different components. 
 
 - **Centralized Logging:** Aggregate logs from all your nodes, pods, and applications into a central location. This provides a unified view of your cluster's activity and simplifies troubleshooting.

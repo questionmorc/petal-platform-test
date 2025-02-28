@@ -29,7 +29,7 @@ We can hope to ensure consistency and parity accross multiple environments by us
 ## Centralized RBAC Management
 
 For centralized RBAC, consider using an external identity provider and integrating it with Kubernetes. Terraform can then be used to configure RoleBindings based on user groups from the identity provider.  
-For example with GCP we can use our organiziations Goolgle accounts or groups for our authentication and reference them in our RoleBindings.
+For example with GCP we can use our organiziations Google accounts or groups for our authentication and reference them in our RoleBindings. 
 
 ## Automation
 
@@ -70,7 +70,7 @@ We can use tools like [tfsec](https://aquasecurity.github.io/tfsec/v1.20.0/) to 
 - **Modules**:
 Sometimes re-using modules with `terraform` can be difficult for users to understand. It's important to keep documentation up to date. 
 We can use some tools such as [terraform-docs](https://terraform-docs.io/user-guide/introduction/) to help us keep the documentation of modules up to date.
-  
+
 
 ## Tools and Technologies
 

@@ -19,7 +19,7 @@ This document outlines the steps to set up a local Kubernetes cluster using Mini
 1. Visit the [minikube documentation](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Fx86-64%2Fstable%2Fbinary+download)
 2. Follow the instructions for your platform. 
 3. Verify that the minikube command is installed correctly `minikube --help`. 
-   If the help is not displayed and your system cannot find the `minikube` command. Veriy that the binary is available in your PATH. 
+   If the help is not displayed and your system cannot find the `minikube` command. Verify that the binary is available in your PATH. 
 
 ## Start Minikube Cluster
 
