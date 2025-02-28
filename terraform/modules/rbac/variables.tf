@@ -1,10 +1,10 @@
 variable "name" {
-  type = string
+  type        = string
   description = "Name of the role and role binding"
 }
 
 variable "namespace" {
-  type = string
+  type        = string
   description = "Namespace to create the role in"
 }
 
@@ -17,7 +17,18 @@ variable "rules" {
   description = "Permissions for the role"
 }
 
-variable "user" {
-  type = string
-  description = "User to assign the role to"
+variable "subjects" {
+  type = list(object({
+    kind      = string
+    name      = string
+    api_group = string
+  }))
+  description = "Subjects to assign the role to"
+  default = [
+    {
+      kind      = "User"
+      name      = "default"
+      api_group = "rbac.authorization.k8s.io"
+    }
+  ]
 }
