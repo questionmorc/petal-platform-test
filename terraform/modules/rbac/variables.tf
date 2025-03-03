@@ -24,11 +24,4 @@ variable "subjects" {
     api_group = string
   }))
   description = "Subjects to assign the role to"
-  default = [
-    {
-      kind      = "User"
-      name      = "default"
-      api_group = "rbac.authorization.k8s.io"
-    }
-  ]
 }
